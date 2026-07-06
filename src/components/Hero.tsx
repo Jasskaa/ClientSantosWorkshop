@@ -5,7 +5,7 @@ import heroImage from "../assets/images/gta_garage_hero_1783325759182.jpg";
 
 export function Hero() {
   return (
-    <div className="relative pt-20 pb-32 flex content-center items-center justify-center min-h-[90vh]">
+    <div id="inicio" className="relative pt-20 pb-32 flex content-center items-center justify-center min-h-[90vh]">
       <div 
         className="absolute top-0 w-full h-full bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}

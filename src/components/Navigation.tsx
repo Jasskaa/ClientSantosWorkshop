@@ -1,5 +1,13 @@
 import { motion } from "motion/react";
 import { Wrench } from "lucide-react";
+import { WORKSHOP_INFO } from "../data";
+
+const NAV_ITEMS = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Vista General", href: "#vista-general" },
+  { label: "Galería", href: "#galeria" },
+  { label: "Reseñas", href: "#reseñas" },
+];
 
 export function Navigation() {
   return (
@@ -21,21 +29,26 @@ export function Navigation() {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {['Inicio', 'Vista General', 'Reseñas', 'Contacto'].map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  key={item.label}
+                  href={item.href}
                   className="font-display uppercase tracking-wider text-sm font-medium text-gray-300 hover:text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.6)] transition-all duration-300"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
             </div>
           </div>
           <div className="hidden md:block">
-             <button className="bg-purple-600 hover:bg-purple-500 text-white font-display uppercase tracking-wider px-6 py-2.5 text-sm font-bold transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] skew-x-[-10deg]">
+             <a
+                href={`https://wa.me/34${WORKSHOP_INFO.phone.replace(/\s/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-purple-600 hover:bg-purple-500 text-white font-display uppercase tracking-wider px-6 py-2.5 text-sm font-bold transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] skew-x-[-10deg]"
+             >
                 <div className="skew-x-[10deg]">Reservar Cita</div>
-             </button>
+             </a>
           </div>
         </div>
       </div>

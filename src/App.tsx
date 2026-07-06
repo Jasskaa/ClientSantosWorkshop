@@ -6,8 +6,10 @@
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { InfoSection } from './components/InfoSection';
+import { Gallery } from './components/Gallery';
 import { Reviews } from './components/Reviews';
 import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 export default function App() {
   return (
@@ -16,9 +18,11 @@ export default function App() {
       <main>
         <Hero />
         <InfoSection />
+        <Gallery />
         <Reviews />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

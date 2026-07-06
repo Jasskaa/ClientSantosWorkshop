@@ -9,7 +9,6 @@ export const WORKSHOP_INFO = {
   whatsapp: "whatsapp.com",
   status: "Abierto · Cierra a las 13:00 · Vuelve a abrir a las 14:00",
   plusCode: "5FVP+JC Olot",
-  tags: ["Amigable con la comunidad LGBTQ+"]
 };
 
 export const REVIEWS = [

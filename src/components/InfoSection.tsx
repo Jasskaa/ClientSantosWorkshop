@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
-import { Phone, Globe, MessageCircle, Clock, Heart, Navigation as NavIcon } from "lucide-react";
+import { Phone, Globe, MessageCircle, Clock, Star, Navigation as NavIcon } from "lucide-react";
 import { WORKSHOP_INFO } from "../data";
 import toolsImage from "../assets/images/mechanic_tools_neon_1783325773368.jpg";
 
 export function InfoSection() {
   return (
-    <section id="informacion" className="py-24 relative bg-[#0f0f11]">
+    <section id="vista-general" className="py-24 relative bg-[#0f0f11]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -26,10 +26,10 @@ export function InfoSection() {
               className="relative rounded-2xl border border-white/10 shadow-2xl w-full object-cover aspect-[4/3] grayscale-[20%] contrast-125"
             />
             
-            {/* Tag Overlay */}
+            {/* Rating Overlay */}
             <div className="absolute -bottom-6 -right-6 bg-[#1a1a1f] p-4 rounded-xl border border-white/5 shadow-2xl flex items-center gap-3">
-               <Heart className="w-5 h-5 text-pink-500 fill-pink-500/20" />
-               <span className="text-sm font-medium text-gray-200">{WORKSHOP_INFO.tags[0]}</span>
+               <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+               <span className="text-sm font-medium text-gray-200">{WORKSHOP_INFO.rating} · {WORKSHOP_INFO.reviewCount} reseñas en Google</span>
             </div>
           </motion.div>
 
