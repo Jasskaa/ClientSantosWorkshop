@@ -22,7 +22,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
 ];
 
 function PlaceholderCard({ item }: { item: GalleryItem }) {
-  const [showAfter, setShowAfter] = useState(false);
+  const [forcedAfter, setForcedAfter] = useState(false);
 
   return (
     <motion.div
@@ -33,35 +33,41 @@ function PlaceholderCard({ item }: { item: GalleryItem }) {
       transition={{ duration: 0.4 }}
       className="group relative rounded-2xl overflow-hidden border border-white/5 bg-[#151519] aspect-[4/3]"
     >
-      {/* Placeholder visual — reemplazar con <img> real cuando haya fotos */}
+      {/* Capa "Antes" — siempre visible por defecto */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-purple-950/60 to-[#0f0f11]">
+        <ImagePlus className="w-8 h-8 text-white/20" />
+        <span className="text-white/30 text-xs uppercase tracking-widest font-display">
+          Antes — Sube tu foto
+        </span>
+      </div>
+
+      {/* Capa "Después" — aparece con hover (desktop) o con el botón (móvil/click) */}
       <div
-        className={`absolute inset-0 flex flex-col items-center justify-center gap-3 transition-all duration-500 ${
-          showAfter
-            ? "bg-gradient-to-br from-cyan-950/60 to-[#0f0f11]"
-            : "bg-gradient-to-br from-purple-950/60 to-[#0f0f11]"
+        className={`absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-cyan-950/60 to-[#0f0f11] transition-opacity duration-500 ${
+          forcedAfter ? "opacity-100" : "opacity-0 group-hover:opacity-100"
         }`}
       >
         <ImagePlus className="w-8 h-8 text-white/20" />
         <span className="text-white/30 text-xs uppercase tracking-widest font-display">
-          {showAfter ? "Después — Sube tu foto" : "Antes — Sube tu foto"}
+          Después — Sube tu foto
         </span>
       </div>
 
       {/* Overlay info */}
-      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
         <span className="text-[10px] uppercase tracking-wider text-cyan-400 font-display font-semibold">
           {item.category}
         </span>
         <h3 className="text-white font-medium text-sm mt-0.5">{item.title}</h3>
       </div>
 
-      {/* Toggle antes/después */}
+      {/* Toggle antes/después — imprescindible en móvil, disponible también en desktop */}
       <button
-        onClick={() => setShowAfter((v) => !v)}
-        className="absolute top-3 right-3 flex items-center gap-1.5 bg-[#0f0f11]/80 backdrop-blur-sm border border-white/10 text-white text-[11px] font-display uppercase tracking-wider px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:border-cyan-400/50"
+        onClick={() => setForcedAfter((v) => !v)}
+        className="absolute top-3 right-3 flex items-center gap-1.5 bg-[#0f0f11]/80 backdrop-blur-sm border border-white/10 text-white text-[11px] font-display uppercase tracking-wider px-3 py-1.5 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 hover:border-cyan-400/50"
       >
         <ArrowLeftRight className="w-3 h-3" />
-        {showAfter ? "Ver Antes" : "Ver Después"}
+        {forcedAfter ? "Ver Antes" : "Ver Después"}
       </button>
     </motion.div>
   );

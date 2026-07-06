@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Star, MapPin } from "lucide-react";
 import { WORKSHOP_INFO } from "../data";
+import { Marquee } from "./Marquee";
 import heroImage from "../assets/images/gta_garage_hero_1783325759182.jpg";
 
 export function Hero() {
@@ -64,7 +65,9 @@ export function Hero() {
       </div>
       
       {/* Decorative neon bottom line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent shadow-[0_0_15px_rgba(168,85,247,0.8)]" />
+      <div className="absolute bottom-[52px] md:bottom-[46px] left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent shadow-[0_0_15px_rgba(168,85,247,0.8)]" />
+
+      <Marquee />
     </div>
   );
 }
