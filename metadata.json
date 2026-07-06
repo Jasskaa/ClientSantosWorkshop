@@ -1,0 +1,8 @@
+{
+  "name": "Santo's Olot Autoworks",
+  "description": "Premium auto tuning and mechanic workshop landing page. GTA V style with neon purple and cyan accents.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
