@@ -11,6 +11,12 @@ export const WORKSHOP_INFO = {
   plusCode: "5FVP+JC Olot",
 };
 
+// TODO: sustituir por los handles reales del taller
+export const SOCIALS = {
+  instagram: "tallerlosantos",
+  tiktok: "tallerlosantos",
+};
+
 export const REVIEWS = [
   {
     id: 1,

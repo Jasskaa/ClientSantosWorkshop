@@ -2,7 +2,8 @@ import { motion } from "motion/react";
 import { Star, MapPin } from "lucide-react";
 import { WORKSHOP_INFO } from "../data";
 import { Marquee } from "./Marquee";
-import heroImage from "../assets/images/gta_garage_hero_1783325759182.jpg";
+import { BrandTitle } from "./BrandTitle";
+import heroImage from "../assets/images/gta_garage_hero_1783325759182.webp";
 
 export function Hero() {
   return (
@@ -25,14 +26,14 @@ export function Hero() {
           </span>
         </motion.div>
         
-        <motion.h1 
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold uppercase tracking-tight text-white mb-6 drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]"
+        <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          className="mb-6"
         >
-          Santo's Olot <span className="text-purple-500 drop-shadow-[0_0_20px_rgba(168,85,247,0.6)]">Autoworks</span>
-        </motion.h1>
+          <BrandTitle />
+        </motion.div>
 
         <motion.div 
           className="flex flex-col sm:flex-row items-center gap-6 mt-6 bg-[#1a1a1f]/80 backdrop-blur-md px-8 py-4 rounded-xl border border-white/5 shadow-2xl"

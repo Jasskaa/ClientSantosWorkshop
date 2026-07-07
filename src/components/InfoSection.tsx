@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Clock } from "lucide-react";
 import { WORKSHOP_INFO } from "../data";
-import toolsImage from "../assets/images/mechanic_tools_neon_1783325773368.jpg";
+import toolsImage from "../assets/images/mechanic_tools_neon_1783325773368.webp";
 
 export function InfoSection() {
   return (

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Wrench, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { BookingModal } from "./BookingModal";
+import logo from "../assets/images/logo_santos.png";
 
 const NAV_ITEMS = [
   { label: "Inicio", href: "#inicio" },
   { label: "Vista General", href: "#vista-general" },
+  { label: "Servicios", href: "#servicios" },
   { label: "Galería", href: "#galeria" },
   { label: "Reseñas", href: "#reseñas" },
 ];
@@ -25,12 +27,10 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
-              <div className="w-10 h-10 rounded-full bg-purple-600/20 flex items-center justify-center border border-purple-500/50 group-hover:bg-purple-500/40 transition-colors duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-                <Wrench className="w-5 h-5 text-purple-400 group-hover:text-cyan-400 transition-colors duration-300" />
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full bg-purple-500/20 blur-md group-hover:bg-cyan-400/30 transition-colors duration-300" />
+                <img src={logo} alt="Santo's Olot Autoworks" className="relative w-11 h-11 object-contain drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]" />
               </div>
-              <span className="font-display font-bold text-xl tracking-widest uppercase text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
-                Santo's <span className="text-cyan-400">Olot</span>
-              </span>
             </div>
 
             {/* Desktop nav */}

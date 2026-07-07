@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Phone, Globe, MessageCircle } from "lucide-react";
 import { WORKSHOP_INFO } from "../data";
+import { LegalModal } from "./LegalModal";
 
 export function Footer() {
+  const [legalTab, setLegalTab] = useState<"legal" | "privacidad" | "cookies" | null>(null);
+
   return (
     <footer className="relative bg-[#050505] py-12 border-t border-purple-500/20 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/60 to-transparent" />
@@ -41,10 +45,13 @@ export function Footer() {
         </div>
 
         <div className="flex gap-6">
-          <a href="#" className="text-gray-500 hover:text-cyan-400 transition-colors text-sm uppercase tracking-wider font-display">Términos</a>
-          <a href="#" className="text-gray-500 hover:text-cyan-400 transition-colors text-sm uppercase tracking-wider font-display">Privacidad</a>
+          <button onClick={() => setLegalTab("legal")} className="text-gray-500 hover:text-cyan-400 transition-colors text-sm uppercase tracking-wider font-display">Aviso Legal</button>
+          <button onClick={() => setLegalTab("privacidad")} className="text-gray-500 hover:text-cyan-400 transition-colors text-sm uppercase tracking-wider font-display">Privacidad</button>
+          <button onClick={() => setLegalTab("cookies")} className="text-gray-500 hover:text-cyan-400 transition-colors text-sm uppercase tracking-wider font-display">Cookies</button>
         </div>
       </div>
+
+      <LegalModal open={legalTab} onClose={() => setLegalTab(null)} />
     </footer>
   );
 }
